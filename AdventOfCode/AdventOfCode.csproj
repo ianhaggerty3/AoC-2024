@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AoCHelper" Version="4.0.0" />
+    <PackageReference Include="JonSkeet.MiscUtil" Version="0.2.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <NoWarn>S101</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Inputs\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
