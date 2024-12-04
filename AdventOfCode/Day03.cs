@@ -31,8 +31,35 @@ public class Day03 : BaseDay
 
     public override ValueTask<string> Solve_2()
     {
+        var multiplyMatches = Regex.Matches(_input, @"mul\((\d{1,3}),(\d{1,3})\)");
+        var doMatches = Regex.Matches(_input, @"do\(\)");
+        var dontMatches = Regex.Matches(_input, @"don't\(\)");
+        List<int> doIndices = [0, ..doMatches.Select(m => m.Index)];
+        List<int?> dontIndices = dontMatches.Select(m => (int?) m.Index).ToList();
         
+        var total = 0;
+
+        foreach (Match match in multiplyMatches)
+        {
+            if (!IsEnabled(match.Index))
+                continue;
+            
+            var first = int.Parse(match.Groups[1].Value);
+            var second = int.Parse(match.Groups[2].Value);
+
+            total += first * second;
+        }
+
+        bool IsEnabled(int index)
+        {
+            var doIndex = doIndices.Last(i => i <= index);
+            int? dontIndex = dontIndices.LastOrDefault(i => i <= index) ?? -1;
+
+            Console.WriteLine($"doIndex {doIndex} dontIndex {dontIndex}");
+            
+            return doIndex > dontIndex;
+        }
         
-        return new ValueTask<string>($"{0}");
+        return new ValueTask<string>($"{total}");
     }
 }
