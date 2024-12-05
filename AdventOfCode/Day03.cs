@@ -55,8 +55,6 @@ public class Day03 : BaseDay
             var doIndex = doIndices.Last(i => i <= index);
             int? dontIndex = dontIndices.LastOrDefault(i => i <= index) ?? -1;
 
-            Console.WriteLine($"doIndex {doIndex} dontIndex {dontIndex}");
-            
             return doIndex > dontIndex;
         }
         
