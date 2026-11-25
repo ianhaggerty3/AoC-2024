@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AoCHelper" Version="4.0.0" />
+    <PackageReference Include="AoCHelper" Version="4.1.0" />
     <PackageReference Include="JonSkeet.MiscUtil" Version="0.2.0" />
   </ItemGroup>
 
